@@ -1,12 +1,13 @@
 import React from 'react'
 import { useRouteMatch, Link } from 'react-router-dom'
-import { FiChevronLeft } from 'react-icons/fi'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 import logo from 'assets/logo.svg'
-import { Header, RepositoryInfo } from './styles'
+import { Header, RepositoryInfo, Issues } from './styles'
 
 const Repository = () => {
   const { params } = useRouteMatch()
+
   return (
     <>
       <Header>
@@ -45,6 +46,17 @@ const Repository = () => {
           </li>
         </ul>
       </RepositoryInfo>
+
+      <Issues>
+        <Link to="/repositories">
+          <div>
+            <strong>asdsd</strong>
+            <p>asdsad</p>
+          </div>
+
+          <FiChevronRight size={20} />
+        </Link>
+      </Issues>
     </>
   )
 }

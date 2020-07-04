@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import { appColors } from 'styles/global'
 
-const { textPrimary, textError, darkGrayBg, textDefault } = appColors
+import { appColors } from 'styles/global'
+import { CardStyles } from 'pages/styles/global'
+
+const { textPrimary, textDefault } = appColors
 
 export const Header = styled.header`
   display: flex;
@@ -68,4 +70,8 @@ export const RepositoryInfo = styled.section`
       }
     }
   }
+`
+
+export const Issues = styled.section`
+  ${CardStyles}
 `

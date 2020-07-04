@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { shade, lighten } from 'polished'
 
 import { appColors } from 'styles/global'
+import { CardStyles } from 'pages/styles/global'
 
 const {
   textPrimary,
@@ -62,52 +63,14 @@ export const Form = styled.form`
 `
 
 export const Repositories = styled.div`
-  margin-top: 80px;
+  ${CardStyles}
   max-width: 700px;
 
   a {
-    width: 100%;
-    padding: 24px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: transform 0.2s;
-    background: ${darkGrayBg};
-
-    & + a {
-      margin-top: 16px;
-    }
-
-    &:hover {
-      transform: translateX(10px);
-    }
-
     img {
       width: 64px;
       height: 64px;
       border-radius: 10px;
-    }
-
-    div {
-      margin: 0 16px;
-      flex: 1;
-
-      strong {
-        font-size: 20px;
-        color: ${lighten(0.3, textPrimary)};
-      }
-
-      p {
-        font-size: 18px;
-        color: ${textDefault};
-        margin-top: 10px;
-      }
-    }
-
-    svg {
-      margin-left: auto;
-      color: ${lighten(0.2, textPrimary)};
     }
   }
 `
