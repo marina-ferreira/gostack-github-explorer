@@ -1,15 +1,22 @@
 import styled from 'styled-components'
 import { shade, lighten } from 'polished'
 
-const darkGray = '#3a3a3a'
-const titleColor = '#3d3d4d'
+import { appColors } from 'styles/global'
+
+const {
+  textPrimary,
+  textError,
+  darkGrayBg,
+  textDefault,
+  textButton,
+  buttonBg
+} = appColors
 
 export const Title = styled.h1`
   max-width: 450px;
   line-height: 56px;
   font-size: 48px;
-  color: #3a3a3a;
-  color: ${titleColor};
+  color: ${textPrimary};
   margin-top: 80px;
 `
 
@@ -29,26 +36,27 @@ export const Form = styled.form`
     flex: 1;
     padding: 0 24px;
     margin-right: 10px;
-    color: ${lighten(0.45, titleColor)};
+    color: ${lighten(0.45, textPrimary)};
     transition: border 0.5s;
-    background: ${darkGray};
-    border: ${({ hasError }) => (hasError ? '2px solid #c53030;' : 'none;')};
+    background: ${darkGrayBg};
+    border: ${({ hasError }) =>
+      hasError ? `2px solid ${textError}` : 'none;'};
 
     &::placeholder {
-      color: ${lighten(0.35, titleColor)};
+      color: ${lighten(0.35, textPrimary)};
     }
   }
 
   button {
     width: 210px;
-    color: #cacaca;
+    color: ${textButton};
     text-transform: uppercase;
     border: 1px solid #002a13;
     transition: background 0.2s, border-color 0.1s;
-    background: ${shade(0.7, '#04d361')};
+    background: ${shade(0.7, buttonBg)};
 
     &:hover {
-      background: ${shade(0.73, '#04d361')};
+      background: ${shade(0.73, buttonBg)};
     }
   }
 `
@@ -65,7 +73,7 @@ export const Repositories = styled.div`
     text-decoration: none;
     border-radius: 5px;
     transition: transform 0.2s;
-    background: ${darkGray};
+    background: ${darkGrayBg};
 
     & + a {
       margin-top: 16px;
@@ -87,24 +95,24 @@ export const Repositories = styled.div`
 
       strong {
         font-size: 20px;
-        color: ${lighten(0.3, titleColor)};
+        color: ${lighten(0.3, textPrimary)};
       }
 
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: ${textDefault};
         margin-top: 10px;
       }
     }
 
     svg {
       margin-left: auto;
-      color: ${lighten(0.2, titleColor)};
+      color: ${lighten(0.2, textPrimary)};
     }
   }
 `
 
 export const InputError = styled.p`
-  color: #c53030;
+  color: ${textError};
   margin: 12px 0 0 5px;
 `

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FiChevronRight } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import api from 'services/api'
 
@@ -56,7 +57,7 @@ const Dashboard = () => {
 
       <Repositories>
         {repos.map(repo => (
-          <a key={repo.id} href="test">
+          <Link key={repo.id} to={`/repositories/${repo.full_name}`}>
             <img src={repo.owner.avatar_url} alt={repo.owner.login} />
             <div>
               <strong>{repo.full_name}</strong>
@@ -64,7 +65,7 @@ const Dashboard = () => {
             </div>
 
             <FiChevronRight size={20} />
-          </a>
+          </Link>
         ))}
       </Repositories>
     </>
