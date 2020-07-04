@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FiChevronRight } from 'react-icons/fi'
 
 import api from 'services/api'
@@ -8,8 +8,15 @@ import { Title, Form, Repositories, InputError } from './styles'
 
 const Dashboard = () => {
   const [newRepo, setNewRepo] = useState('')
-  const [repos, setRepos] = useState([])
   const [inputError, setInputError] = useState()
+  const [repos, setRepos] = useState(() => {
+    const storageRepos = localStorage.getItem('@GithubExplorer:repositories')
+    return storageRepos ? JSON.parse(storageRepos) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem('@GithubExplorer:repositories', JSON.stringify(repos))
+  }, [repos])
 
   const handleAddRepo = async e => {
     e.preventDefault()
