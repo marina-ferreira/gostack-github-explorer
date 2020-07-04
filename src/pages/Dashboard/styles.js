@@ -29,9 +29,10 @@ export const Form = styled.form`
     flex: 1;
     padding: 0 24px;
     margin-right: 10px;
-    color: #a8a8b3;
     color: ${lighten(0.45, titleColor)};
+    transition: border 0.5s;
     background: ${darkGray};
+    border: ${({ hasError }) => (hasError ? '2px solid #c53030;' : 'none;')};
 
     &::placeholder {
       color: ${lighten(0.35, titleColor)};
@@ -81,7 +82,8 @@ export const Repositories = styled.div`
     }
 
     div {
-      margin-left: 16px;
+      margin: 0 16px;
+      flex: 1;
 
       strong {
         font-size: 20px;
@@ -91,7 +93,7 @@ export const Repositories = styled.div`
       p {
         font-size: 18px;
         color: #a8a8b3;
-        margin-top: 15px;
+        margin-top: 10px;
       }
     }
 
@@ -100,4 +102,9 @@ export const Repositories = styled.div`
       color: ${lighten(0.2, titleColor)};
     }
   }
+`
+
+export const InputError = styled.p`
+  color: #c53030;
+  margin: 12px 0 0 5px;
 `
