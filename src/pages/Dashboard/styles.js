@@ -4,14 +4,7 @@ import { shade, lighten } from 'polished'
 import { appColors } from 'styles/global'
 import { CardStyles } from 'pages/styles/global'
 
-const {
-  textPrimary,
-  textError,
-  darkGrayBg,
-  textDefault,
-  textButton,
-  buttonBg
-} = appColors
+const { textPrimary, textError, darkGrayBg, textButton, buttonBg } = appColors
 
 export const Title = styled.h1`
   max-width: 450px;
